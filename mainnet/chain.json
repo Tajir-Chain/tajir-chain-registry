@@ -1,0 +1,26 @@
+{
+  "name": "Tajir Chain",
+  "chainId": 3377,
+  "networkId": 3377,
+  "shortName": "tajir",
+  "nativeCurrency": { "name": "Tajir", "symbol": "TJR", "decimals": 18 },
+  "rpc": ["https://rpc.tajirchain.com"],
+  "explorers": [
+    { "name": "Tajir Explorer", "url": "https://explorer.tajirchain.com", "standard": "EIP3091" }
+  ],
+  "stack": "OP Stack",
+  "settlement": "AggLayer",
+  "parent": {
+    "type": "L2",
+    "chain": "eip155-1",
+    "aggLayerRollupId": 28
+  },
+  "gasToken": {
+    "kind": "native",
+    "l1Address": "0x9D98C61d1136cfA2ac263Be355350C97Ca41c110",
+    "l1ChainId": 1,
+    "symbol": "TJR",
+    "decimals": 18,
+    "note": "TJR is the native gas token. It is locked on Ethereum L1 and native on Tajir Chain; it is not an ERC-20 on L2."
+  }
+}

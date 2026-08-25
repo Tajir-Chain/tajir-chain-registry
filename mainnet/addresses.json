@@ -1,0 +1,35 @@
+{
+  "chainId": 3377,
+  "l1ChainId": 1,
+  "l1": {
+    "TajirToken": {
+      "proxy": "0x9D98C61d1136cfA2ac263Be355350C97Ca41c110",
+      "implementation": "0x590A81b2D58ffcE6a7e385e34eC404355D2BD658",
+      "pattern": "ERC1967 (UUPS)"
+    },
+    "AdminSafe": "0xBA1D51BBB17Fd24Fd6bF2c030F3ca0E3a3B4d22E",
+    "opStack": {
+      "SystemConfig": "0x8dF5680aBdeCb180142c8c0c389F31045B9e8Dd8",
+      "OptimismPortal": "0x55Cd3d1e86987799fbbBb8a32b592276991b1092",
+      "L1StandardBridge": "0x02549AB7db8e96faF0cedd48D842Fe4CA468fE03",
+      "L1CrossDomainMessenger": "0xB708439da411119FAE785cf7446aee25d5dd6b03",
+      "DisputeGameFactory": "0x61a9C4b2Db1CC8c506F18a6887E43faD91DF8a5e",
+      "ProxyAdmin": "0xaC725B03EB24bd576972C1e3d6Fd31eb003A285d",
+      "BatchInbox": "0x009AFe3a07Dc5Eb0E3d6DCFfBCEc2c3C90eA20E3"
+    },
+    "aggLayer": {
+      "AgglayerManager": "0x5132A183E9F3CB7C848b0AAC5Ae0c4f0491B7aB2",
+      "AgglayerBridge": "0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe",
+      "AgglayerGER": "0x580bda1e7A0CFAe92Fa7F6c20A3794F169CE3CFb",
+      "RollupContract": "0xB07134fF28e74a90667Ab5e3F7271a542D6E0358",
+      "POL": "0x455e53CBB86018Ac2B8092FdCd39d8444aFFC3F6",
+      "rollupId": 28
+    }
+  },
+  "l2": {
+    "AgglayerBridge": "0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe",
+    "AgglayerGER": "0xa40D5f56745a118D0906a34E69aeC8C0Db1cB8fA",
+    "WETH": "0x7a7f337d883EE98DF40c4654b3ad4E3aacF304E8",
+    "predeploys": "Standard OP Stack predeploys at 0x42000000000000000000000000000000000000xx"
+  }
+}

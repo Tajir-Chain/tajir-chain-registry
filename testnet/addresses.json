@@ -1,0 +1,29 @@
+{
+  "chainId": 7733,
+  "l1ChainId": 11155111,
+  "l1": {
+    "TajirTestToken": "0x55AEE58B82f2195D9F18e4C18eadB7B0c2ea6E09",
+    "AdminSafe": "0xd1aF581fD4494dc904b174B381CdF9766ed94599",
+    "opStack": {
+      "SystemConfig": "0xfce2f0a58726F4a6CEfA6ca7607B0Ea88215F789",
+      "OptimismPortal": "0x57Fec7B357CD769e62223a0cA3CC878F7DC92aaa",
+      "L1StandardBridge": "0x4BD4fd62aafA3C6714c88BaC468Aa9cfF20C3D2f",
+      "L1CrossDomainMessenger": "0x2632D9278630e34ee1399beB7B58ee05CeB2124A",
+      "DisputeGameFactory": "0xbdE5ca7e0DE67E182e5C3d9326026d0bBe55Ac91",
+      "BatchInbox": "0x00A6F95717111bDA93450644625CB3aA9abB315c"
+    },
+    "aggLayer": {
+      "AgglayerManager": "0x32d33D5137a7cFFb54c5Bf8371172bcEc5f310ff",
+      "AgglayerBridge": "0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582",
+      "AgglayerGER": "0xAd1490c248c5d3CbAE399Fd529b79B42984277DF",
+      "AgglayerGateway": "0xaA8103640A6C92af48A97D720168011E9f3Ec697",
+      "RollupContract": "0x677753D97702662b588bfBf22C5769398dA70dd3",
+      "rollupId": 62
+    }
+  },
+  "l2": {
+    "AgglayerBridge": "0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582",
+    "AgglayerGER": "0xa40D5f56745a118D0906a34E69aeC8C0Db1cB8fA",
+    "WETH": "0xf283932e4aEB7A12e7784893f070f0825A4E4211"
+  }
+}

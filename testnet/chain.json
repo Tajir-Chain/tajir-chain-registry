@@ -1,0 +1,26 @@
+{
+  "name": "Tajir Chain Testnet",
+  "chainId": 7733,
+  "networkId": 7733,
+  "shortName": "tajir-testnet",
+  "nativeCurrency": { "name": "Tajir Test Token", "symbol": "tTJR", "decimals": 18 },
+  "rpc": ["https://rpc.testnet.tajirchain.com"],
+  "explorers": [
+    { "name": "Tajir Testnet Explorer", "url": "https://explorer.testnet.tajirchain.com", "standard": "EIP3091" }
+  ],
+  "stack": "OP Stack",
+  "settlement": "AggLayer",
+  "parent": {
+    "type": "L2",
+    "chain": "eip155-11155111",
+    "aggLayerRollupId": 62
+  },
+  "gasToken": {
+    "kind": "native",
+    "l1Address": "0x55AEE58B82f2195D9F18e4C18eadB7B0c2ea6E09",
+    "l1ChainId": 11155111,
+    "symbol": "tTJR",
+    "decimals": 18,
+    "note": "Sepolia-backed test token. No value."
+  }
+}
