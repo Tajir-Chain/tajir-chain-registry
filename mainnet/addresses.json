@@ -4,7 +4,7 @@
   "l1": {
     "TajirToken": {
       "proxy": "0x9D98C61d1136cfA2ac263Be355350C97Ca41c110",
-      "implementation": "0x590A81b2D58ffcE6a7e385e34eC404355D2BD658",
+      "implementation": "0x48bf1A70E9509B59831Dd23921eB9570F1ED7BA8",
       "pattern": "ERC1967 (UUPS)"
     },
     "AdminSafe": "0xBA1D51BBB17Fd24Fd6bF2c030F3ca0E3a3B4d22E",

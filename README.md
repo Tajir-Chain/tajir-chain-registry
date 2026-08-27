@@ -110,9 +110,10 @@ TJR is the **native gas token** of Tajir Chain. It is **not** an ERC-20 on L2. T
 | **Name** | Tajir |
 | **Symbol** | TJR |
 | **Decimals** | 18 |
-| **Fixed Total Supply** | 650,000,000 TJR |
+| **Initial Supply** | 650,000,000 TJR |
+| **Supply Model** | No mint function — supply can never increase. Burn is supported, so it may decrease. Read `totalSupply()`; do not hardcode. |
 | **L1 Contract (Proxy)** | [`0x9D98C61d1136cfA2ac263Be355350C97Ca41c110`](https://etherscan.io/address/0x9D98C61d1136cfA2ac263Be355350C97Ca41c110) |
-| **L1 Contract (Implementation)** | [`0x590A81b2D58ffcE6a7e385e34eC404355D2BD658`](https://etherscan.io/address/0x590A81b2D58ffcE6a7e385e34eC404355D2BD658) |
+| **L1 Contract (Implementation)** | [`0x48bf1A70E9509B59831Dd23921eB9570F1ED7BA8`](https://etherscan.io/address/0x48bf1A70E9509B59831Dd23921eB9570F1ED7BA8) |
 | **Proxy Pattern** | ERC-1967 (UUPS) |
 | **Compiler** | `0.8.27+commit.40a35a09`, optimizer 200 runs |
 | **Verification** | Sourcify (exact match) · Blockscout |
@@ -270,7 +271,7 @@ cast call 0x8dF5680aBdeCb180142c8c0c389F31045B9e8Dd8 'version()(string)' \
 The implementation is verified on [Sourcify](https://sourcify.dev) (exact match) and Blockscout:
 
 ```bash
-cast code 0x590A81b2D58ffcE6a7e385e34eC404355D2BD658 --rpc-url $ETH_RPC
+cast code 0x48bf1A70E9509B59831Dd23921eB9570F1ED7BA8 --rpc-url $ETH_RPC
 ```
 
 > **Note:** `UUPSUpgradeable` stores its own address in three immutable slots (`__self`), so 3 × 20 bytes will differ from a plain build artifact by design. Mask those slots before comparing — everything else matches exactly.

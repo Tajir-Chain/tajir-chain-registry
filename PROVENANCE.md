@@ -51,15 +51,39 @@ cast call 0x8dF5680aBdeCb180142c8c0c389F31045B9e8Dd8 'version()(string)' --rpc-u
 | Property | Value |
 |---|---|
 | **Proxy (ERC-1967 / UUPS)** | [`0x9D98C61d1136cfA2ac263Be355350C97Ca41c110`](https://etherscan.io/address/0x9D98C61d1136cfA2ac263Be355350C97Ca41c110) |
-| **Implementation** | [`0x590A81b2D58ffcE6a7e385e34eC404355D2BD658`](https://etherscan.io/address/0x590A81b2D58ffcE6a7e385e34eC404355D2BD658) |
+| **Implementation (current)** | [`0x48bf1A70E9509B59831Dd23921eB9570F1ED7BA8`](https://etherscan.io/address/0x48bf1A70E9509B59831Dd23921eB9570F1ED7BA8) |
+| **Implementation (initial, superseded)** | [`0x590A81b2D58ffcE6a7e385e34eC404355D2BD658`](https://etherscan.io/address/0x590A81b2D58ffcE6a7e385e34eC404355D2BD658) |
 | **Implementation deploy tx** | [`0x1c791a632eca6e11465c86482081fb8a66f31667bd97a0ffcc5c578fddb057e2`](https://etherscan.io/tx/0x1c791a632eca6e11465c86482081fb8a66f31667bd97a0ffcc5c578fddb057e2) |
 | **Proxy deploy + initialize tx** | [`0x5db1cbe3af8cce70956d3471cfc49ee444bc9347159dbf7d9a27c67e35d3c234`](https://etherscan.io/tx/0x5db1cbe3af8cce70956d3471cfc49ee444bc9347159dbf7d9a27c67e35d3c234) |
 | **Compiler** | `0.8.27+commit.40a35a09`, optimizer 200 runs |
-| **Source verification** | Sourcify (exact match) · Blockscout |
+| **Source verification** | Sourcify (exact match) · Blockscout — both implementations |
+
+### Upgrade history
+
+The proxy is upgradeable (UUPS). Bind integrations to the **proxy** address; the
+implementation changes.
+
+| Date (UTC) | Implementation | Tx |
+|---|---|---|
+| 2026-08-07 | `0x590A81b2D58ffcE6a7e385e34eC404355D2BD658` (initial) | [`0x5db1cbe3…`](https://etherscan.io/tx/0x5db1cbe3af8cce70956d3471cfc49ee444bc9347159dbf7d9a27c67e35d3c234) |
+| 2026-08-27 | `0x48bf1A70E9509B59831Dd23921eB9570F1ED7BA8` (adds burn) | [`0x9e6cfef1…`](https://etherscan.io/tx/0x9e6cfef12e40b852e91c16d9b024ff1907fd50b91e28eab09c92c3b8c6e7ad7a) |
+
+The 2026-08-27 upgrade was executed by the 3-of-5 Safe `0xBA1D51BBB17Fd24Fd6bF2c030F3ca0E3a3B4d22E`
+at block 25847146, confirmed by the Safe's `ExecutionSuccess` event (a Safe transaction
+mines with receipt status 1 even when the inner call reverts, so the event is the check).
+
+Read the live implementation directly rather than trusting this table:
+
+```bash
+cast storage 0x9D98C61d1136cfA2ac263Be355350C97Ca41c110 \
+  0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc --rpc-url $ETH_RPC
+```
 
 ### Minting
 
-The entire fixed supply of **650,000,000 TJR** is minted once inside `initialize()`, which executes as part of the proxy constructor. There is no separate mint transaction.
+The entire initial supply of **650,000,000 TJR** is minted once inside `initialize()`, which executes as part of the proxy constructor. There is no separate mint transaction, and no mint function exists — supply can never increase.
+
+The current implementation adds `burn(uint256)` and `burnFrom(address,uint256)`, so total supply **can decrease**. Integrators must read `totalSupply()` rather than assume a constant.
 
 The only `Transfer(address(0) → holder)` event in the token's entire history is emitted by the proxy deploy + initialize transaction listed above. This can be verified on-chain:
 
@@ -78,7 +102,7 @@ The implementation is verified on [Sourcify](https://sourcify.dev) (exact match)
 
 ```bash
 # Fetch the deployed bytecode
-cast code 0x590A81b2D58ffcE6a7e385e34eC404355D2BD658 --rpc-url $ETH_RPC
+cast code 0x48bf1A70E9509B59831Dd23921eB9570F1ED7BA8 --rpc-url $ETH_RPC
 ```
 
 > **Important:** `cast code` on the implementation will **not** byte-match a plain `deployedBytecode` build artifact. `UUPSUpgradeable` stores its own address in three immutable slots (`__self`), so those **3 × 20 bytes differ by construction**. Mask those slots before comparing — everything else matches exactly.
