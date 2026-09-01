@@ -7,10 +7,9 @@
     "opStack": {
       "SystemConfig": "0xfce2f0a58726F4a6CEfA6ca7607B0Ea88215F789",
       "OptimismPortal": "0x57Fec7B357CD769e62223a0cA3CC878F7DC92aaa",
-      "L1StandardBridge": "0x4BD4fd62aafA3C6714c88BaC468Aa9cfF20C3D2f",
-      "L1CrossDomainMessenger": "0x2632D9278630e34ee1399beB7B58ee05CeB2124A",
       "DisputeGameFactory": "0xbdE5ca7e0DE67E182e5C3d9326026d0bBe55Ac91",
-      "BatchInbox": "0x00A6F95717111bDA93450644625CB3aA9abB315c"
+      "BatchInbox": "0x00A6F95717111bDA93450644625CB3aA9abB315c",
+      "_note": "OP Stack infrastructure only. These are NOT the asset bridge \u2014 TJR is the native gas token on L2, so the OP bridge has no ERC-20 to credit and cannot deliver. Use aggLayer.AgglayerBridge for ALL bridging."
     },
     "aggLayer": {
       "AgglayerManager": "0x32d33D5137a7cFFb54c5Bf8371172bcEc5f310ff",

@@ -24,8 +24,6 @@ Each value below is returned by `version()` called on the live L1 contract. Thes
 |---|---|---|
 | SystemConfig | [`0x8dF5680aBdeCb180142c8c0c389F31045B9e8Dd8`](https://etherscan.io/address/0x8dF5680aBdeCb180142c8c0c389F31045B9e8Dd8) | `3.13.1` |
 | OptimismPortal | [`0x55Cd3d1e86987799fbbBb8a32b592276991b1092`](https://etherscan.io/address/0x55Cd3d1e86987799fbbBb8a32b592276991b1092) | `5.2.0` |
-| L1CrossDomainMessenger | [`0xB708439da411119FAE785cf7446aee25d5dd6b03`](https://etherscan.io/address/0xB708439da411119FAE785cf7446aee25d5dd6b03) | `2.11.0` |
-| L1StandardBridge | [`0x02549AB7db8e96faF0cedd48D842Fe4CA468fE03`](https://etherscan.io/address/0x02549AB7db8e96faF0cedd48D842Fe4CA468fE03) | `2.8.0` |
 | DisputeGameFactory | [`0x61a9C4b2Db1CC8c506F18a6887E43faD91DF8a5e`](https://etherscan.io/address/0x61a9C4b2Db1CC8c506F18a6887E43faD91DF8a5e) | `1.4.0` |
 | AgglayerBridge | [`0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe`](https://etherscan.io/address/0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe) | `v1.1.0` |
 | AgglayerManager | [`0x5132A183E9F3CB7C848b0AAC5Ae0c4f0491B7aB2`](https://etherscan.io/address/0x5132A183E9F3CB7C848b0AAC5Ae0c4f0491B7aB2) | `v1.0.0` |

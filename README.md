@@ -60,7 +60,7 @@ AggLayer (Rollup ID 28)
     │  Aggregated validity proof
     ▼
 Ethereum Mainnet (L1, Chain ID 1)
-    │  SystemConfig · OptimismPortal · L1StandardBridge
+    │  SystemConfig · OptimismPortal · DisputeGameFactory
     │  DisputeGameFactory · L1CrossDomainMessenger
     ▼
 Final settlement & data availability
@@ -103,6 +103,13 @@ tajir-chain-registry/
 
 TJR is the **native gas token** of Tajir Chain. It is **not** an ERC-20 on L2. The canonical ERC-20 lives on Ethereum L1, where it is locked by the AggLayer bridge and becomes native on L2.
 
+> **Bridge with `AgglayerBridge` only.** It is the canonical bridge for TJR and every
+> other asset. The OP Stack `L1StandardBridge` is **not** usable here: it credits an
+> ERC-20 on L2, and TJR has no ERC-20 on L2 — so a deposit through it cannot be
+> delivered. Its address is deliberately omitted from this registry. The OP Stack
+> entries that remain (`SystemConfig`, `OptimismPortal`, `BatchInbox`) are node
+> infrastructure, needed to sync a node, not to move assets.
+
 ### Token Details
 
 | Property | Value |
@@ -136,8 +143,6 @@ On the L2 bridge, `gasTokenAddress()` returns `0x9D98C61d1136cfA2ac263Be355350C9
 |---|---|
 | SystemConfig | [`0x8dF5680aBdeCb180142c8c0c389F31045B9e8Dd8`](https://etherscan.io/address/0x8dF5680aBdeCb180142c8c0c389F31045B9e8Dd8) |
 | OptimismPortal | [`0x55Cd3d1e86987799fbbBb8a32b592276991b1092`](https://etherscan.io/address/0x55Cd3d1e86987799fbbBb8a32b592276991b1092) |
-| L1StandardBridge | [`0x02549AB7db8e96faF0cedd48D842Fe4CA468fE03`](https://etherscan.io/address/0x02549AB7db8e96faF0cedd48D842Fe4CA468fE03) |
-| L1CrossDomainMessenger | [`0xB708439da411119FAE785cf7446aee25d5dd6b03`](https://etherscan.io/address/0xB708439da411119FAE785cf7446aee25d5dd6b03) |
 | DisputeGameFactory | [`0x61a9C4b2Db1CC8c506F18a6887E43faD91DF8a5e`](https://etherscan.io/address/0x61a9C4b2Db1CC8c506F18a6887E43faD91DF8a5e) |
 | ProxyAdmin | [`0xaC725B03EB24bd576972C1e3d6Fd31eb003A285d`](https://etherscan.io/address/0xaC725B03EB24bd576972C1e3d6Fd31eb003A285d) |
 | BatchInbox | [`0x009AFe3a07Dc5Eb0E3d6DCFfBCEc2c3C90eA20E3`](https://etherscan.io/address/0x009AFe3a07Dc5Eb0E3d6DCFfBCEc2c3C90eA20E3) |
@@ -173,8 +178,6 @@ On the L2 bridge, `gasTokenAddress()` returns `0x9D98C61d1136cfA2ac263Be355350C9
 | TajirTestToken (L1) | [`0x55AEE58B82f2195D9F18e4C18eadB7B0c2ea6E09`](https://sepolia.etherscan.io/address/0x55AEE58B82f2195D9F18e4C18eadB7B0c2ea6E09) |
 | SystemConfig | [`0xfce2f0a58726F4a6CEfA6ca7607B0Ea88215F789`](https://sepolia.etherscan.io/address/0xfce2f0a58726F4a6CEfA6ca7607B0Ea88215F789) |
 | OptimismPortal | [`0x57Fec7B357CD769e62223a0cA3CC878F7DC92aaa`](https://sepolia.etherscan.io/address/0x57Fec7B357CD769e62223a0cA3CC878F7DC92aaa) |
-| L1StandardBridge | [`0x4BD4fd62aafA3C6714c88BaC468Aa9cfF20C3D2f`](https://sepolia.etherscan.io/address/0x4BD4fd62aafA3C6714c88BaC468Aa9cfF20C3D2f) |
-| L1CrossDomainMessenger | [`0x2632D9278630e34ee1399beB7B58ee05CeB2124A`](https://sepolia.etherscan.io/address/0x2632D9278630e34ee1399beB7B58ee05CeB2124A) |
 | DisputeGameFactory | [`0xbdE5ca7e0DE67E182e5C3d9326026d0bBe55Ac91`](https://sepolia.etherscan.io/address/0xbdE5ca7e0DE67E182e5C3d9326026d0bBe55Ac91) |
 | AgglayerBridge | [`0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582`](https://sepolia.etherscan.io/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582) |
 | AgglayerManager | [`0x32d33D5137a7cFFb54c5Bf8371172bcEc5f310ff`](https://sepolia.etherscan.io/address/0x32d33D5137a7cFFb54c5Bf8371172bcEc5f310ff) |
@@ -259,8 +262,6 @@ cast call 0x8dF5680aBdeCb180142c8c0c389F31045B9e8Dd8 'version()(string)' \
 |---|---|
 | SystemConfig | `3.13.1` |
 | OptimismPortal | `5.2.0` |
-| L1CrossDomainMessenger | `2.11.0` |
-| L1StandardBridge | `2.8.0` |
 | DisputeGameFactory | `1.4.0` |
 | AgglayerBridge | `v1.1.0` |
 | AgglayerManager | `v1.0.0` |
